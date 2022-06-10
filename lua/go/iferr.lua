@@ -22,11 +22,11 @@ local run = function()
   end
 
   local pos = vfn.getcurpos()[2]
-  vfn.append(pos, data)
+  vfn.append(pos-1, data)
 
-  vim.cmd('silent normal! j=2j')
+  -- vim.cmd('silent normal! j=2j')
+  require('go.format').gofmt()
   vfn.setpos('.', pos)
-  vim.cmd('silent normal! 4j')
   --
 
 end
